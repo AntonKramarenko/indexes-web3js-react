@@ -1,0 +1,34 @@
+@import '../../../styles/colors.scss';
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 130px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background-color: $background-main ;
+    z-index: 100;
+}
+
+@media (max-width: 1200px){
+    .header{
+        padding: 0 80px;
+    }
+}
+@media (max-width: 992px){
+    .header{
+        padding: 0 10px;
+    }
+}
+@media (max-width: 576px){
+    .header{
+        height: 60px;
+    }
+
+}

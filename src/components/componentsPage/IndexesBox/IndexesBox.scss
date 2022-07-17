@@ -1,0 +1,43 @@
+.indexesBox{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 40px;
+
+    &__title{
+        grid-column-start: 1;
+        grid-column-end: -1;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 16px;
+    }
+}
+
+@media (max-width: 768px){
+    .indexesBox{
+        grid-template-columns: repeat(3, 1fr);
+
+        &__title{
+            margin-bottom: 8px;
+        }
+    }
+}
+@media (max-width: 576px){
+    .indexesBox{
+        grid-template-columns: repeat(2, 1fr);
+
+        &__title{
+            margin-bottom: 5px;
+        }
+    }
+}
+
+@media (max-width: 420px){
+    .indexesBox{
+        grid-template-columns: repeat(1, 1fr);
+
+        &__title{
+         font-size: 1.2rem;
+        }
+    }
+}
