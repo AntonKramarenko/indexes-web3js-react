@@ -24,8 +24,6 @@ export const IndexesBox:React.FC<IIndexesBox> = ({titleName,indexes}) => {
 	const [itemInfo,setItemInfo] = useState<IIndexInfo[]>([initialInfo])
 	const [load,setLoad]= useState(true)
 
-	
-
 	 useEffect(()=>{
         getItemInfo()
         // eslint-disable-next-line
@@ -36,9 +34,9 @@ export const IndexesBox:React.FC<IIndexesBox> = ({titleName,indexes}) => {
 			const indexArr:IIndexInfo[] = []
 			await indexes.forEach( async (index:string) => {
 				await caContract.methods.getIndex(index).call().then((indexInfo:IIndexInfo) => indexArr.push({...indexInfo}))
-				await setItemInfo(indexArr)
+				setItemInfo(indexArr)
 			})
-		   	setLoad(false)
+		   	 setLoad(false)
 		}
 	 }
 
