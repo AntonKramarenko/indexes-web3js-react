@@ -1,0 +1,42 @@
+@import '../../../styles/colors.scss';
+
+.indexItemLoader{
+    width: 100%;
+    background: $color-primary-light;
+    border-radius: $radius;
+    padding: 20px;
+    box-shadow: $shadow;
+
+    & div {
+        color: transparent;
+        background: linear-gradient(14deg, #eceff1 30%, #f6f7f8 50%, #eceff1 70%);
+    }
+
+    &__title{
+        margin-bottom: 10px;
+    }
+
+    &__current{
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 992px){
+    .indexItemLoader{
+        padding: 15px;
+
+        &__title{
+            margin-bottom: 3px;
+        }
+
+        &__current{
+            margin-bottom: 8px;
+        }
+    }
+}
+
+@media (max-width: 576px){
+    .indexItemLoader{
+        padding: 15px 20px;
+    }
+}
