@@ -26,14 +26,14 @@
         font-weight: 400;
         font-size: 0.95rem;
         flex-wrap: nowrap;
-
-        &-persent {
-            color: $color-primary-active;
-        }
     }
-    .loading{
-        color: transparent;
-        background: linear-gradient(14deg, #eceff1 30%, #f6f7f8 50%, #eceff1 70%);
+
+    .persentUp{
+       color: $color-primary-active;
+    }
+
+    .persentDown{
+        color: $color-primary-disabled;
     }
 }
 

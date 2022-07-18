@@ -13,13 +13,22 @@ export const IndexItem:React.FC<IIndexInfo> = (props) => {
     return usdFormater.format(+usdCapitalization)
   }, [usdCapitalization])
   
+
+  const percent = (percentValue:string) =>{
+    if (+percentValue >=0){
+      return <span className='persentUp'>{percentValue}%</span>
+    } else {
+      return <span className='persentDown'>{percentValue}%</span>
+    }
+  } 
+  
   return (
     <div className='indexItem '>
         <h3 className='indexItem__title'>{name}</h3>
         <div className='indexItem__current'> ${usdPrice} / {ethWei} ETH</div>
         <div className='indexItem__values'>
             <span className="indexItem__values-capitalization">{capitalization}</span>
-            <div className="indexItem__values-persent">{percentageChange}%</div>
+            <div className="indexItem__values-persent">{percent(percentageChange)}</div>
         </div>
     </div>
   )
