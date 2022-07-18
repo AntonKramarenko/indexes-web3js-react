@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { IndexesBox } from '../../components/componentsPage/IndexesBox'
-import { ICaContract,  IGroupsId } from '../../types/types'
+import { ICaContract,  IGroupsId } from '../../types'
 import { Loader } from '../../components/componentsUI/Loader'
 import './IndexesPage.scss'
 
@@ -28,20 +28,21 @@ export const IndexesPage: React.FC<IIndexesPage> = ({caContract}) => {
     }
   }
 
+ 
   const getGroup = async () => {
     const groupsArr:IGroupsId[] = []
-    if(groupIds){
-      groupIds.forEach(async (groupId) => {
+    if(groupIds.length){
+      for(const groupId of groupIds){
         await caContract.methods.getGroup(groupId).call().then((groupId:IGroupsId) => groupsArr.push({...groupId}))
-        setGroups(groupsArr);
-      })
+      }
+      setGroups(groupsArr);
     }
   }
 
   return (
     <div className='indexesPage'>
       <h1 className='indexesPage__title'>All Indexes</h1>
-      {groups.length 
+      {groups.length
         ? groups.map((group:IGroupsId) => <IndexesBox key={group.name} titleName={group.name} indexes={group.indexes}/>)
         :  <Loader/>   
       }

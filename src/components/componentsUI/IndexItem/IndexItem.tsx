@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import Web3 from 'web3'
-import { IIndexInfo } from '../../../types/types'
+import { IIndexInfo } from '../../../types'
 import './IndexItem.scss'
 
 export const IndexItem:React.FC<IIndexInfo> = (props) => {

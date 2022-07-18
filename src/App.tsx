@@ -3,7 +3,7 @@ import Web3 from 'web3';
 import addressContract from './abi/contractABI';
 import { Header } from './components/componentsPage/Header';
 import { IndexesPage } from './pages/IndexesPage';
-import { ICaContract } from './types/types';
+import { ICaContract } from './types';
 import { Loader } from './components/componentsUI/Loader';
 
 export  const caContractContext = createContext<ICaContract | null>(null);
