@@ -41,7 +41,7 @@ export const IndexesPage: React.FC<IIndexesPage> = ({caContract}) => {
   return (
     <div className='indexesPage'>
       <h1 className='indexesPage__title'>All Indexes</h1>
-      {groups.length
+      {groups.length 
         ? groups.map((group:IGroupsId) => <IndexesBox key={group.name} titleName={group.name} indexes={group.indexes}/>)
         :  <Loader/>   
       }

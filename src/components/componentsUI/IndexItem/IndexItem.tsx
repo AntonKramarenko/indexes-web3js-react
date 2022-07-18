@@ -24,4 +24,3 @@ export const IndexItem:React.FC<IIndexInfo> = (props) => {
     </div>
   )
 } 
-
