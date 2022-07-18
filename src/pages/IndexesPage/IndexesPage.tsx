@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { IndexesBox } from '../../components/componentsPage/IndexesBox'
-import './IndexesPage.scss'
-import {ICaContract,  IGroupsId } from '../../types/types'
+import { ICaContract,  IGroupsId } from '../../types/types'
 import { Loader } from '../../components/componentsUI/Loader'
+import './IndexesPage.scss'
 
 interface IIndexesPage{
   caContract: ICaContract
