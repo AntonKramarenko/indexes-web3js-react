@@ -21,11 +21,15 @@ export const IndexesBox:React.FC<IIndexesBox> = ({titleName,indexes}) => {
 
 	const getItemInfo = async () =>{
 		if(caContract){
-			const indexArr:IIndexInfo[] = []
-			for( const index  of indexes) {
-				await caContract.methods.getIndex(index).call().then((indexInfo:IIndexInfo) => indexArr.push({...indexInfo}))
+			try {
+				const indexArr:IIndexInfo[] = []
+				for( const index  of indexes) {
+			 		await caContract.methods.getIndex(index).call().then((indexInfo:IIndexInfo) => indexArr.push({...indexInfo}))
+				}
+				setItemInfo(indexArr)
+			} catch (error) {
+				throw new Error('get item info Error')
 			}
-			setItemInfo(indexArr)
 		}
 	 }
 

@@ -24,18 +24,25 @@ export const IndexesPage: React.FC<IIndexesPage> = ({caContract}) => {
 
   const getGroupsIds = async () => {
     if(caContract){ 
-      await caContract.methods.getGroupIds().call().then((groupsIds:string[]) => setGroupIds(groupsIds))
+      try {
+        await caContract.methods.getGroupIds().call().then((groupsIds:string[]) => setGroupIds(groupsIds))
+      } catch (error) {
+        throw new Error('get group ids Error')
+      }
     }
   }
 
- 
   const getGroup = async () => {
-    const groupsArr:IGroupsId[] = []
     if(groupIds.length){
-      for(const groupId of groupIds){
-        await caContract.methods.getGroup(groupId).call().then((groupId:IGroupsId) => groupsArr.push({...groupId}))
+      try {
+        const groupsArr:IGroupsId[] = []
+        for(const groupId of groupIds){
+          await caContract.methods.getGroup(groupId).call().then((groupId:IGroupsId) => groupsArr.push({...groupId}))
+        }
+        setGroups(groupsArr);
+      } catch (error) {
+         throw new Error('get groups Error')
       }
-      setGroups(groupsArr);
     }
   }
 
